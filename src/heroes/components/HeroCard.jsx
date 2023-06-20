@@ -1,15 +1,14 @@
+/* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom';
 
 
 const CharactersByHero = ({alter_ego, characters}) => {
-    if(alter_ego === characters){
-        return <></>
-    } else {
-        return <p>{characters}</p>
-    }
+    return (alter_ego === characters)
+    ? <></>
+    : <p>{characters}</p>
 }
 
-export const HeroCard = ({id, superhero, publisher, alter_ego, first_appearance, characters}) => {
+export const HeroCard = ({id, superhero, alter_ego, first_appearance, characters}) => {
   const heroImageUrl = `/assets/heroes/${ id }.jpg`;
 
     return (
