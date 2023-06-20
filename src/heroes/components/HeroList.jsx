@@ -1,20 +1,17 @@
 import { getHeroesByPublisher } from "../helpers";
+import { HeroCard } from "./HeroCard";
 
 export const HeroList = ({publisher}) => {
   
   const heroes = getHeroesByPublisher(publisher);
 
   return (
-    <ul>
-        {heroes.map((heroe) => (
-            <li key={heroe.id}>
-                <h2>
-                    {heroe.superhero}
-                </h2>
-                <p>{heroe.alter_ego}</p>
-            </li>
-        ))}
-        <li>Batman</li>
-    </ul>
+    <div className="row rows-cols-1 row-cols-md-3 g-3">
+        {
+            heroes.map((heroe) => (
+                <HeroCard key={heroe.id} {...heroe} />
+            ))
+        }
+    </div>
   )
 }
