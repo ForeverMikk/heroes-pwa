@@ -1,12 +1,14 @@
 import { Navigate, useNavigate, useParams } from "react-router-dom"
 import { getHeroById } from "../helpers";
+import { useMemo } from "react";
 
 export const HeroPage = () => {
 
   const { heroId } = useParams();
-  const hero = getHeroById(heroId);
   const navigate = useNavigate();
-
+  // Aqui usamos el useMemo como precausion en caso de que cambie el estado del componente y asi guarda el valor de la funcion
+  const hero = useMemo(() => getHeroById(heroId), [heroId]);
+console.log(hero);
   const onNavigateBack = () => {
     navigate(-1);
   }
