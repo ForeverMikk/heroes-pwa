@@ -8,7 +8,7 @@ export const HeroPage = () => {
   const navigate = useNavigate();
   // Aqui usamos el useMemo como precausion en caso de que cambie el estado del componente y asi guarda el valor de la funcion
   const hero = useMemo(() => getHeroById(heroId), [heroId]);
-console.log(hero);
+
   const onNavigateBack = () => {
     navigate(-1);
   }
@@ -23,7 +23,7 @@ console.log(hero);
         <img 
           src={`/assets/heroes/${heroId}.jpg`} 
           alt={hero.superhero} 
-          className="img-thumbnail"
+          className="img-thumbnail animate__animated animate__fadeInLeft"
         />
       </div>
 
