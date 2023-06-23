@@ -1,8 +1,9 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { useForm } from "../../hooks/useForm"
 import queryString from 'query-string';
+
 import { getHeroesByName } from "../helpers";
 import { HeroCard } from "../components";
+import { useForm } from "../../hooks/useForm"
 
 export const SearchPage = () => {
   
