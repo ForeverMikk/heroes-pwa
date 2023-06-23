@@ -5,21 +5,33 @@ import { types } from "../types/types"
 
 export const AuthProvider = ({ children }) => {
 
-    const initialState = {
-        logged: false
+
+    // Esta funcion de inicializacion se ejecuta cuando recargas la pagina
+    // detecta el usuario en el localStorage y lo carga
+    const init = () => {
+      const user = JSON.parse(localStorage.getItem('user'));
+      
+      return {
+        logged: !!user,
+        user: user
+
+      }
     }
 
-    const [ authState, dispatch ] =useReducer(authReducer, initialState);
+    const [ authState, dispatch ] = useReducer(authReducer, {}, init);
 
     const login = async(name = '') => {
+      const user = {
+        id: 'ABC',
+        name: name
+      }
+
       const action = {
         type: types.login,
-        payload: {
-          id: 'ABC',
-          name: name
-        }
+        payload: user
       }
       
+      localStorage.setItem('user', JSON.stringify(user));
       dispatch(action);
     }
 
