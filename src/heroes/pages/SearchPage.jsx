@@ -1,9 +1,9 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import queryString from 'query-string';
 
-import { getHeroesByName } from "../helpers";
-import { HeroCard } from "../components";
 import { useForm } from "../../hooks/useForm"
+import { HeroCard } from "../components";
+import { getHeroesByName } from "../helpers";
 
 export const SearchPage = () => {
   
@@ -79,8 +79,8 @@ export const SearchPage = () => {
             not found <b>{q}</b>
           </div>
 
-          {heroes.map(heroe => (
-             <HeroCard key={heroe.id} {...heroe}/> 
+          {heroes.map(hero => (
+             <HeroCard key={hero.id} {...hero}/> 
           ))}
         </div>
       </div>
