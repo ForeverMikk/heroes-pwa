@@ -37,8 +37,7 @@ describe('Pruebas en authReducer', () => {
             type: types.logout
         }
 
-        const newState = authReducer(state, action);
-        console.log(newState);
+        const newState = authReducer(state, action); 
         expect(newState).toEqual({ logged: false });
     });
 });
