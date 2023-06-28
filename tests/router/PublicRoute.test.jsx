@@ -7,8 +7,8 @@ import { AuthContext } from '../../src/auth';
 
 /* eslint-disable no-undef */
 describe('pruebas en <PublicRoute />', () => { 
-    test('debe de mostrar el children si no esta autenticado', () => { 
-
+    
+    test('debe de mostrar el children si NO esta autenticado', () => { 
         const contextValue = {
             logged: false
         }
@@ -25,8 +25,6 @@ describe('pruebas en <PublicRoute />', () => {
     });
 
     test('debe de navegar si esta autenticado', () => {
-        
-        
         const contextValue = {
             logged: true,
             user: {
